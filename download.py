@@ -3,7 +3,7 @@ from pathlib import Path
 
 import boto3
 
-scene_id = "10300100E18CB600"
+scene_id = ""
 
 s3 = boto3.resource(
         "s3",

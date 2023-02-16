@@ -3,6 +3,7 @@
 - Install dependencies
 - You need to have GDAL installed
 - Provide credentials and a scene id (catid) to the script to download
+- If you are on windows, you need to add `verify=False` to boto3.resource and requests
 - The script will create a folder and download the tiles in it
 
 # Merge
