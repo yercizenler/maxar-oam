@@ -7,8 +7,8 @@ scene_id = "10300100E18CB600"
 
 s3 = boto3.resource(
         "s3",
-        aws_access_key_id="AKIA47MNXXGLC7N6FZF4",
-        aws_secret_access_key="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",
+        aws_access_key_id="",
+        aws_secret_access_key="",
     )
 bucket = s3.Bucket(name="maxar-opendata")
 blobs = bucket.objects.filter(Prefix="")

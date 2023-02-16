@@ -18,3 +18,5 @@ gdalbuildvrt out.vrt *.tif
 ```
 gdal_translate out.vrt out.tif -a_nodata 0.0 -of GTiff -co BIGTIFF=YES -co TILED=YES -co COMPRESS=JPEG -co PHOTOMETRIC=YCBCR
 ```
+
+# Rename & Upload to s3 bucket
