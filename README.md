@@ -1,6 +1,7 @@
 # Scene Download
 
 - Install dependencies
+- You need to have GDAL installed
 - Provide credentials and a scene id (catid) to the script to download
 - The script will create a folder and download the tiles in it
 
