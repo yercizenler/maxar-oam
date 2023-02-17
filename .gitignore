@@ -2,3 +2,5 @@
 **vrt
 **msk
 **DS_Store
+*.env
+**.pyc
