@@ -22,10 +22,14 @@ MAXAR_AWS_SECRET=...
 
 # Run the script
 
+If you are brave to run all process:
 ```
-python3 main.py -scene_id 2312938 -merge_path "SCENES/.."
+python3 main.py -scene_id 10300500D9F8D500 -output_name "MAXAR_KAHRAMANMARAS.tif"
 ```
+
+If you wanna run only one part, go to `manuals` and set variables manually. Then run.
 
 # Uploading to OAM
 
 - The image will be in `https://cdn.hotosm.org/OAMimagery/<name of file>`
+- Use the link to upload to [OAM](https://openaerialmap.org/).
