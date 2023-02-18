@@ -8,13 +8,20 @@ def process_scene(scene_path: Path, output_path: Path):
     """
     Process the image using GDAL commands.
     """
-    if is_projection_different(scene_path=scene_path):
-        project_to_3857(scene_path=scene_path)
-        scene_path = scene_path / "PROJECTED"
-    
     vrt_path = scene_path / "out.vrt"
-    tif_pattern = scene_path / "*.tif"
-    build_vrt(vrt_path=vrt_path, tif_pattern=tif_pattern)
+    input_pattern = scene_path / "*.tif"
+
+    if is_projection_different(scene_path=scene_path):
+        projected_path = scene_path / "PROJECTED"
+        project_to_3857(
+            scene_path=scene_path,
+            projected_path=projected_path
+        )
+
+        scene_path = projected_path
+        input_pattern = scene_path / "*.vrt"
+    
+    build_vrt(vrt_path=vrt_path, input_pattern=input_pattern)
 
     merge_and_compress_scene(
         vrt_path=vrt_path, output_path=output_path
@@ -30,14 +37,14 @@ def project_to_3857(scene_path: Path):
     """
     pass
 
-def build_vrt(vrt_path: Path, tif_pattern: Path) -> None:
+def build_vrt(vrt_path: Path, input_pattern: Path) -> None:
     """
     Runs the below subprocess in a more pythonic way.
 
     gdalbuildvrt out.vrt *.tif
     """
     
-    cmd_list = ["gdalbuildvrt", str(vrt_path), str(tif_pattern)]
+    cmd_list = ["gdalbuildvrt", str(vrt_path), str(input_pattern)]
     os.system(subprocess.list2cmdline(cmd_list))
         
 def merge_and_compress_scene(

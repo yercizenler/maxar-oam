@@ -6,6 +6,18 @@ are far away from a production-ready code.
 contact: batuhankavlak4@gmail.com
 ```
 
+The repository is designed to help HOT members to download, process, and upload MAXAR
+open data in the Turkey & Syria Earthquake.
+
+The current steps and stage is summarized as below:
+
+- `download`: Searching `scene_id` through s3 maxar data bucket is used since there
+isn't a STAC API hosting the data.
+- `process`: For the sake of performance, GDAL commands are used to merge and compress data.
+If not all the tiles are in the same projection, we are projecting them to `3857` and then mosaic.
+- `upload`: The processed images are uploaded to HOT s3 bucket `"hotosm-cdn/OAMimagery"`.
+Then a manual upload to OAM is performed.
+
 # Install Dependency
 
 - Only supports OS systems.
