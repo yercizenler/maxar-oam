@@ -1,31 +1,31 @@
-# Scene Download
-
-- Install dependencies
-- You need to have GDAL installed
-- Provide credentials and a scene id (catid) to the script to download
-- If you are on windows, you need to add `verify=False` to boto3.resource and requests
-- The script will create a folder and download the tiles in it
-
-# Merge
-
-- Go to the scene directory
-- Build VRT
-
 ```
-gdalbuildvrt out.vrt *.tif
+WARNING: The repo tries to automatize MAXAR image processing
+before uploading to OAM on a local machine. The design and dependencies
+are far away from a production-ready code.
+
+contact: batuhankavlak4@gmail.com
 ```
 
-- Merge & Compress
+# Install Dependency
+
+- Only supports OS systems.
+- Install GDAL to your local machine
+- Install `requirements.txt` on python
+
+# Set AWS Credentials
+
+- Set the following environment keys as `.env` on vscode or to your bash
+```
+MAXAR_AWS_KEY_ID=...
+MAXAR_AWS_SECRET=...
+```
+
+# Run the script
 
 ```
-gdal_translate out.vrt out.tif -a_nodata 0.0 -of GTiff -co BIGTIFF=YES -co TILED=YES -co COMPRESS=JPEG -co PHOTOMETRIC=YCBCR
+python3 main.py -scene_id 2312938 -merge_path "SCENES/.."
 ```
 
-# Rename & Upload to s3 bucket
+# Uploading to OAM
 
-- Go to the scene directory and rename the out.tif
-- Provide credentials and upload it to OAM S3 Bucket
-
-- We are uploading files to `s3://hotosm-cdn/OAMimagery/` bucket
-- You can reach them in as
-`https://cdn.hotosm.org/OAMimagery/<name of file>`
+- The image will be in `https://cdn.hotosm.org/OAMimagery/<name of file>`
