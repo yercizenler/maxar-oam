@@ -1,3 +1,7 @@
+"""
+Simple tests for test-driven development.
+"""
+
 from pathlib import Path
 import os
 

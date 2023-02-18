@@ -13,12 +13,14 @@ def process_scene(scene_path: Path, output_path: Path):
 
     if is_projection_different(scene_path=scene_path):
         projected_path = scene_path / "PROJECTED"
+        projected_path.mkdir(parents=True, exist_ok=True)
         project_to_3857(
             scene_path=scene_path,
             projected_path=projected_path
         )
 
         scene_path = projected_path
+        vrt_path = scene_path / "out.vrt"
         input_pattern = scene_path / "*.vrt"
     
     build_vrt(vrt_path=vrt_path, input_pattern=input_pattern)
@@ -27,15 +29,21 @@ def process_scene(scene_path: Path, output_path: Path):
         vrt_path=vrt_path, output_path=output_path
     )
 
-    pass
-
-def project_to_3857(scene_path: Path):
+def project_to_3857(scene_path: Path, projected_path: Path):
     """
     Runs the below subprocess in a more pythonic way.
 
-    gdalwarp
+    gdalwarp -of VRT input.tif output.vrt -t_srs EPSG:3857
     """
-    pass
+    for index, path in enumerate(scene_path.rglob("*tif")):
+        out_vrt = str(projected_path / f"tile_{index}.vrt")
+        cmd_list = [
+            "gdalwarp", "-of", "VRT",
+            str(path), out_vrt,
+            "-t_srs", "EPSG:3857"
+        ]
+        os.system(subprocess.list2cmdline(cmd_list))
+
 
 def build_vrt(vrt_path: Path, input_pattern: Path) -> None:
     """

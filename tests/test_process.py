@@ -1,5 +1,5 @@
 """
-Simple tests for development purposes
+Simple tests for test-driven development.
 """
 
 from pathlib import Path
