@@ -20,7 +20,7 @@ Then a manual upload to OAM is performed.
 
 # Install Dependency
 
-- Only supports OS systems.
+- Only supports Unix-like systems.
 - Install GDAL to your local machine
 - Install `requirements.txt` on python
 
