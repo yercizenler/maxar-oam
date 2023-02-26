@@ -33,3 +33,6 @@ def main(scene_id, output_name):
         aws_access_key_id=os.environ["MAXAR_AWS_KEY_ID"],
         aws_secret_access_key=os.environ["MAXAR_AWS_SECRET"]
     )
+
+if __name__ == '__main__':
+    main()
