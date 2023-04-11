@@ -18,8 +18,8 @@ def main(scene_id, output_name):
     download_tiles_s3(
         scene_id=scene_id,
         download_path=download_path,
-        aws_access_key_id=os.environ["MAXAR_AWS_KEY_ID"],
-        aws_secret_access_key=os.environ["MAXAR_AWS_SECRET"]
+        aws_access_key_id=os.environ["PERSONAL_AWS_KEY_ID"],
+        aws_secret_access_key=os.environ["PERSONAL_AWS_SECRET"]
     )
 
     output_path = Path(
