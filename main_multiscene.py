@@ -13,9 +13,10 @@ def main(csv_path: Path = Path(__file__).resolve().parent / "data/operations_df.
     for index, row in operation_df.iterrows():
         if operation_df.at[index, "OperationState"] == "Finished":
             continue
-
-        operation_df.at[index, "OperationState"] = "Started"
-        operation_df.to_csv(csv_path)
+        
+        if operation_df.at[index, "OperationState"] == "NotStarted":
+            operation_df.at[index, "OperationState"] = "Started"
+            operation_df.to_csv(csv_path)
         
         scene_id = row["ImageId"]
         output_name = row["ImageName"]

@@ -33,12 +33,14 @@ def project_to_3857(scene_path: Path, projected_path: Path):
     """
     Runs the below subprocess in a more pythonic way.
 
-    gdalwarp -of VRT input.tif output.vrt -t_srs EPSG:3857
+    gdalwarp -of VRT -srcnodata 0 input.tif output.vrt -t_srs EPSG:3857
     """
     for index, path in enumerate(scene_path.rglob("*tif")):
         out_vrt = str(projected_path / f"tile_{index}.vrt")
         cmd_list = [
             "gdalwarp", "-of", "VRT",
+            "-srcnodata", "0.0",
+            "-dstnodata", "0.0",
             str(path), out_vrt,
             "-t_srs", "EPSG:3857"
         ]
@@ -52,7 +54,11 @@ def build_vrt(vrt_path: Path, input_pattern: Path) -> None:
     gdalbuildvrt out.vrt *.tif
     """
     
-    cmd_list = ["gdalbuildvrt", str(vrt_path), str(input_pattern)]
+    cmd_list = [
+        "gdalbuildvrt",
+        "-srcnodata", "0.0",
+        "-vrtnodata", "0.0",
+        str(vrt_path), str(input_pattern)]
     os.system(subprocess.list2cmdline(cmd_list))
         
 def merge_and_compress_scene(

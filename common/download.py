@@ -3,7 +3,7 @@ from pathlib import Path
 
 import boto3
 
-VERIFY=True # Set to False if you are on Windows
+VERIFY=True # Set to False if you are on Windows.
 
 def download_tiles_s3(
         scene_id: str = "",
