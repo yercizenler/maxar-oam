@@ -1,13 +1,14 @@
 import os
 from pathlib import Path
 import pandas as pd
-import csv
 
 from common.download import download_tiles_s3
 from common.process import process_scene
 from common.upload import upload_scene
 
-def main(csv_path: Path = Path(__file__).resolve().parent / "data/operations_df.csv"):
+INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/maui_fires_aug23.csv"
+
+def main(csv_path: Path = INPUT_DATA_PATH):
     operation_df = pd.read_csv(csv_path)
     
     for index, row in operation_df.iterrows():
@@ -16,7 +17,7 @@ def main(csv_path: Path = Path(__file__).resolve().parent / "data/operations_df.
         
         if operation_df.at[index, "OperationState"] == "NotStarted":
             operation_df.at[index, "OperationState"] = "Started"
-            operation_df.to_csv(csv_path)
+            operation_df.to_csv(csv_path, index=False)
         
         scene_id = row["ImageId"]
         output_name = row["ImageName"]
@@ -32,7 +33,7 @@ def main(csv_path: Path = Path(__file__).resolve().parent / "data/operations_df.
                 aws_secret_access_key=os.environ["PERSONAL_AWS_SECRET"]
             )
             operation_df.at[index, "OperationState"] = "Downloaded"
-            operation_df.to_csv(csv_path)
+            operation_df.to_csv(csv_path, index=False)
 
         output_path = Path(
             f"SCENES/{scene_id}/{output_name}"
@@ -42,7 +43,7 @@ def main(csv_path: Path = Path(__file__).resolve().parent / "data/operations_df.
             process_scene(scene_path=download_path, output_path=output_path)
 
             operation_df.at[index, "OperationState"] = "Processed"
-            operation_df.to_csv(csv_path)
+            operation_df.to_csv(csv_path, index=False)
 
         if operation_df.at[index, "OperationState"] == "Processed":
             upload_scene(
@@ -52,7 +53,7 @@ def main(csv_path: Path = Path(__file__).resolve().parent / "data/operations_df.
             )
 
             operation_df.at[index, "OperationState"] = "Finished"
-            operation_df.to_csv(csv_path)
+            operation_df.to_csv(csv_path, index=False)
 
 if __name__ == '__main__':
     main()

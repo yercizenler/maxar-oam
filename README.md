@@ -39,7 +39,9 @@ If you are brave to run all process:
 python3 main.py --scene_id 10300500D9F8D500 --output_name "MAXAR_KAHRAMANMARAS.tif"
 ```
 
-If you wanna run only one part, go to `manuals` and set variables manually. Then run.
+`main_multiscene.py` is more practical for iterative processing.
+
+If you wanna run only one part of the process, go to `manuals` and set variables manually. Then run.
 
 # Uploading to OAM
 
