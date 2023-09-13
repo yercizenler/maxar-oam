@@ -1,12 +1,13 @@
 import os
 from pathlib import Path
 import pandas as pd
+import requests
 
 from common.download import download_tiles_s3
 from common.process import process_scene
 from common.upload import upload_scene
 
-INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/maui_fires_aug23.csv"
+INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/morocco_sep8.csv"
 
 def main(csv_path: Path = INPUT_DATA_PATH):
     operation_df = pd.read_csv(csv_path)
@@ -45,12 +46,13 @@ def main(csv_path: Path = INPUT_DATA_PATH):
             operation_df.at[index, "OperationState"] = "Processed"
             operation_df.to_csv(csv_path, index=False)
 
-        if operation_df.at[index, "OperationState"] == "Processed":
-            upload_scene(
-                upload_path=output_path,
-                aws_access_key_id=os.environ["MAXAR_AWS_KEY_ID"],
-                aws_secret_access_key=os.environ["MAXAR_AWS_SECRET"]
-            )
+        #NOTE - Local manual upload is faster
+        # if operation_df.at[index, "OperationState"] == "Processed":
+        #     upload_scene(
+        #         upload_path=output_path,
+        #         aws_access_key_id=os.environ["MAXAR_AWS_KEY_ID"],
+        #         aws_secret_access_key=os.environ["MAXAR_AWS_SECRET"]
+        #     )
 
             operation_df.at[index, "OperationState"] = "Finished"
             operation_df.to_csv(csv_path, index=False)
