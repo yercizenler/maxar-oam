@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 import exifread
 
@@ -15,3 +16,7 @@ def get_epsg_from_header(file_path: Path) -> str:
     for key in header.keys():
         if header.get(key).tag == 34737:
             return header.get(key).values
+        
+def write_and_update_dict(json_dict: dict, json_path: Path):
+    with json_path.open("w") as f:
+        json.dump(json_dict, f)

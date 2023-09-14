@@ -1,16 +1,20 @@
 import os
 from pathlib import Path
+
 import pandas as pd
-import requests
+import click
 
-from common.download import download_tiles_s3
+from common.download import download_tiles_from_dataset
 from common.process import process_scene
-from common.upload import upload_scene
 
-INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/libya_sep11.csv"
-
-def main(csv_path: Path = INPUT_DATA_PATH):
-    operation_df = pd.read_csv(csv_path)
+@click.command()
+@click.option("--operation_name", default="morocco_sep8", help="CATID of the MAXAR scene.")
+def main(operation_name: str):
+    metadata_path = Path(__file__).resolve().parent / f"data/{operation_name}_metadata.tsv"
+    operation_table_path = Path(__file__).resolve().parent / f"data/{operation_name}.csv"
+    
+    metadata_df = pd.read_csv(metadata_path, sep="\t")
+    operation_df = pd.read_csv(operation_table_path)
     
     for index, row in operation_df.iterrows():
         if operation_df.at[index, "OperationState"] == "Finished":
@@ -18,23 +22,24 @@ def main(csv_path: Path = INPUT_DATA_PATH):
         
         if operation_df.at[index, "OperationState"] == "NotStarted":
             operation_df.at[index, "OperationState"] = "Started"
-            operation_df.to_csv(csv_path, index=False)
+            operation_df.to_csv(operation_table_path, index=False, sep="\t")
         
         scene_id = row["ImageId"]
-        output_name = row["ImageName"]
+
+        metadata_df_filtered = metadata_df[metadata_df["catalog_id"] == scene_id]
+        output_name = f"MERGED_{scene_id}.tif"
 
         Path(f"SCENES/{scene_id}").mkdir(parents=True, exist_ok=True)
         download_path = Path(f"SCENES/{scene_id}")  
 
+        tile_list = list(metadata_df_filtered["visual"])
         if operation_df.at[index, "OperationState"] == "Started":
-            download_tiles_s3(
-                scene_id=scene_id,
+            download_tiles_from_dataset(
                 download_path=download_path,
-                aws_access_key_id=os.environ["PERSONAL_AWS_KEY_ID"],
-                aws_secret_access_key=os.environ["PERSONAL_AWS_SECRET"]
+                tile_list=tile_list
             )
             operation_df.at[index, "OperationState"] = "Downloaded"
-            operation_df.to_csv(csv_path, index=False)
+            operation_df.to_csv(operation_table_path, index=False, sep="\t")
 
         output_path = Path(
             f"SCENES/{scene_id}/{output_name}"
@@ -43,19 +48,8 @@ def main(csv_path: Path = INPUT_DATA_PATH):
         if operation_df.at[index, "OperationState"] == "Downloaded":
             process_scene(scene_path=download_path, output_path=output_path)
 
-            operation_df.at[index, "OperationState"] = "Processed"
-            operation_df.to_csv(csv_path, index=False)
-
-        #NOTE - Local manual upload is faster
-        # if operation_df.at[index, "OperationState"] == "Processed":
-        #     upload_scene(
-        #         upload_path=output_path,
-        #         aws_access_key_id=os.environ["MAXAR_AWS_KEY_ID"],
-        #         aws_secret_access_key=os.environ["MAXAR_AWS_SECRET"]
-        #     )
-
             operation_df.at[index, "OperationState"] = "Finished"
-            operation_df.to_csv(csv_path, index=False)
+            operation_df.to_csv(operation_table_path, index=False, sep="\t")
 
 if __name__ == '__main__':
     main()
