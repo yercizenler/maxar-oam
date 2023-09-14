@@ -7,7 +7,7 @@ from common.download import download_tiles_s3
 from common.process import process_scene
 from common.upload import upload_scene
 
-INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/morocco_sep8.csv"
+INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/libya_sep11.csv"
 
 def main(csv_path: Path = INPUT_DATA_PATH):
     operation_df = pd.read_csv(csv_path)
