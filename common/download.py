@@ -33,7 +33,7 @@ def download_tiles_s3(
         with open(download_path / tile_name, 'wb') as f:
             f.write(r.content)
 
-def download_tiles_from_dataset(
+def download_tiles_from_list(
         download_path: Path = None,
         tile_list: list = None
     ) -> None:
