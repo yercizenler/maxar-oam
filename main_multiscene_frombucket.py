@@ -1,12 +1,11 @@
 import os
 from pathlib import Path
 import pandas as pd
-import requests
 
 from common.download import download_tiles_s3
 from common.process import process_scene
 
-INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/nepal_nov3.csv"
+INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/papua_june4.csv"
 
 def main(csv_path: Path = INPUT_DATA_PATH):
     operation_df = pd.read_csv(csv_path)
