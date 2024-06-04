@@ -44,14 +44,6 @@ def main(csv_path: Path = INPUT_DATA_PATH):
             operation_df.at[index, "OperationState"] = "Processed"
             operation_df.to_csv(csv_path, index=False)
 
-        #NOTE - Local manual upload is faster
-        # if operation_df.at[index, "OperationState"] == "Processed":
-        #     upload_scene(
-        #         upload_path=output_path,
-        #         aws_access_key_id=os.environ["MAXAR_AWS_KEY_ID"],
-        #         aws_secret_access_key=os.environ["MAXAR_AWS_SECRET"]
-        #     )
-
             operation_df.at[index, "OperationState"] = "Finished"
             operation_df.to_csv(csv_path, index=False)
 

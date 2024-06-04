@@ -15,8 +15,7 @@ The current steps and stage is summarized as below:
 isn't a STAC API hosting the data.
 - `process`: For the sake of performance, GDAL commands are used to merge and compress data.
 If not all the tiles are in the same projection, we are projecting them to `3857` and then mosaic.
-- `upload`: The processed images are uploaded to HOT s3 bucket `"hotosm-cdn/OAMimagery"`.
-Then a manual upload to OAM is performed.
+- `upload`: A manual upload to OAM should be performed.
 
 # Install Dependency
 
@@ -45,5 +44,5 @@ If you wanna run only one part of the process, go to `manuals` and set variables
 
 # Uploading to OAM
 
-- The image will be in `https://cdn.hotosm.org/OAMimagery/<name of file>`
-- Use the link to upload to [OAM](https://openaerialmap.org/).
+- The image will be in the local file mosaiced.
+- Use [OAM-UI](https://openaerialmap.org/) to upload.
