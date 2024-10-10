@@ -5,7 +5,7 @@ import pandas as pd
 from common.download import download_tiles_s3
 from common.process import process_scene
 
-INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/papua_june4.csv"
+INPUT_DATA_PATH = Path(__file__).resolve().parent / "data/nepal_sep2024.csv"
 
 def main(csv_path: Path = INPUT_DATA_PATH):
     operation_df = pd.read_csv(csv_path)
@@ -19,7 +19,7 @@ def main(csv_path: Path = INPUT_DATA_PATH):
             operation_df.to_csv(csv_path, index=False)
         
         scene_id = row["ImageId"]
-        output_name = row["ImageName"]
+        output_name = f'{row["ImageId"]}_merged.tif'
 
         Path(f"SCENES/{scene_id}").mkdir(parents=True, exist_ok=True)
         download_path = Path(f"SCENES/{scene_id}")  
