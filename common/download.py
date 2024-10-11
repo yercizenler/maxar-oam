@@ -6,6 +6,7 @@ import boto3
 VERIFY=True # Set to False if you are on Windows.
 
 def download_tiles_s3(
+        event_name: str = "",
         scene_id: str = "",
         download_path: Path = None,
         aws_access_key_id: str = "",
@@ -18,7 +19,7 @@ def download_tiles_s3(
             verify=VERIFY
         )
     bucket = s3.Bucket(name="maxar-opendata")
-    blobs = bucket.objects.filter(Prefix="")
+    blobs = bucket.objects.filter(Prefix=f"events/{event_name}")
 
     print("Detecting tiles")
     resource_list = [
