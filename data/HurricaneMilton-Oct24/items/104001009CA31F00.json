@@ -1,0 +1,277 @@
+{
+    "type": "Feature",
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/view/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.0.0/schema.json"
+    ],
+    "id": "17/031331033133/104001009CA31F00",
+    "properties": {
+        "datetime": "2024-10-10 16:04:28Z",
+        "platform": "WV03",
+        "gsd": 0.37,
+        "ard_metadata_version": "0.0.1",
+        "catalog_id": "104001009CA31F00",
+        "utm_zone": 17,
+        "quadkey": "031331033133",
+        "view:off_nadir": 25.8,
+        "view:azimuth": 139.5,
+        "view:incidence_angle": 61.4,
+        "view:sun_azimuth": 150.4,
+        "view:sun_elevation": 51.3,
+        "proj:epsg": 32617,
+        "proj:geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        338323.3642578125,
+                        3065156.25
+                    ],
+                    [
+                        340156.25,
+                        3065156.25
+                    ],
+                    [
+                        340156.25,
+                        3061320.80078125
+                    ],
+                    [
+                        338284.60693359375,
+                        3061582.03125
+                    ],
+                    [
+                        338323.3642578125,
+                        3065156.25
+                    ]
+                ]
+            ]
+        },
+        "grid:code": "MXRA-Z17-031331033133",
+        "proj:bbox": [
+            338284.60693359375,
+            3061320.80078125,
+            340156.25,
+            3065156.25
+        ],
+        "tile:data_area": 6.8,
+        "tile:clouds_area": 0.0,
+        "tile:clouds_percent": 0
+    },
+    "bbox": [
+        -82.63971779151794,
+        27.666601102511887,
+        -82.62062367768445,
+        27.70121251864598
+    ],
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [
+                    -82.63971779151794,
+                    27.700993664908385
+                ],
+                [
+                    -82.62113482747682,
+                    27.70121251864598
+                ],
+                [
+                    -82.62062367768445,
+                    27.666601102511887
+                ],
+                [
+                    -82.63962880122293,
+                    27.668735269791743
+                ],
+                [
+                    -82.63971779151794,
+                    27.700993664908385
+                ]
+            ]
+        ]
+    },
+    "links": [
+        {
+            "rel": "collection",
+            "href": "../../../acquisition_collections/104001009CA31F00_collection.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "parent",
+            "href": "../../../acquisition_collections/104001009CA31F00_collection.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "root",
+            "href": "../../../order_collections/6559097969572904076_root_collection.json",
+            "type": "application/json"
+        }
+    ],
+    "assets": {
+        "data-mask": {
+            "type": "application/geopackage+sqlite3",
+            "title": "Data Mask",
+            "href": "./104001009CA31F00-data-mask.gpkg",
+            "roles": [
+                "data-mask"
+            ]
+        },
+        "ms_analytic": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Multispectral Image",
+            "href": "./104001009CA31F00-ms.tif",
+            "proj:bbox": [
+                334843.75,
+                3059843.75,
+                340156.25,
+                3065156.25
+            ],
+            "proj:shape": [
+                3593,
+                3593
+            ],
+            "proj:transform": [
+                1.4785694405789034,
+                0.0,
+                334843.75,
+                0.0,
+                -1.4785694405789034,
+                3065156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "eo:bands": [
+                {
+                    "name": "BAND_C",
+                    "common_name": "coastal",
+                    "description": "Coastal Blue"
+                },
+                {
+                    "name": "BAND_B",
+                    "common_name": "blue",
+                    "description": "Blue"
+                },
+                {
+                    "name": "BAND_G",
+                    "common_name": "green",
+                    "description": "Green"
+                },
+                {
+                    "name": "BAND_Y",
+                    "common_name": "yellow",
+                    "description": "Yellow"
+                },
+                {
+                    "name": "BAND_R",
+                    "common_name": "red",
+                    "description": "Red"
+                },
+                {
+                    "name": "BAND_RE",
+                    "common_name": "rededge",
+                    "description": "Red Edge 1"
+                },
+                {
+                    "name": "BAND_N",
+                    "common_name": "nir08",
+                    "description": "Near Infrared 1"
+                },
+                {
+                    "name": "BAND_N2",
+                    "common_name": "nir09",
+                    "description": "Near Infrared 2"
+                }
+            ],
+            "roles": [
+                "data"
+            ]
+        },
+        "pan_analytic": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Panchromatic Image",
+            "href": "./104001009CA31F00-pan.tif",
+            "proj:bbox": [
+                334843.75,
+                3059843.75,
+                340156.25,
+                3065156.25
+            ],
+            "proj:shape": [
+                14372,
+                14372
+            ],
+            "proj:transform": [
+                0.36964236014472585,
+                0.0,
+                334843.75,
+                0.0,
+                -0.36964236014472585,
+                3065156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "eo:bands": [
+                {
+                    "name": "BAND_P",
+                    "description": "Pan"
+                }
+            ],
+            "roles": [
+                "data"
+            ]
+        },
+        "visual": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Visual Image",
+            "href": "./104001009CA31F00-visual.tif",
+            "proj:bbox": [
+                334843.75,
+                3059843.75,
+                340156.25,
+                3065156.25
+            ],
+            "proj:shape": [
+                17408,
+                17408
+            ],
+            "proj:transform": [
+                0.30517578125,
+                0.0,
+                334843.75,
+                0.0,
+                -0.30517578125,
+                3065156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "eo:bands": [
+                {
+                    "name": "BAND_R",
+                    "common_name": "red",
+                    "description": "Red"
+                },
+                {
+                    "name": "BAND_G",
+                    "common_name": "green",
+                    "description": "Green"
+                },
+                {
+                    "name": "BAND_B",
+                    "common_name": "blue",
+                    "description": "Blue"
+                }
+            ],
+            "roles": [
+                "visual"
+            ]
+        }
+    },
+    "collection": "104001009CA31F00"
+}
