@@ -10,6 +10,10 @@
     "10300100F58F2200_collection.json": "Finished",
     "10300100F54C6000_collection.json": "Finished",
     "1040010092953300_collection.json": "Finished",
-    "10300100EF2D2500_collection.json": "Finished"
-}
+    "10300100EF2D2500_collection.json": {
+        "Error": "Input file size is 82944, 574464 0ERROR 1: TIFFFillTile:Read error at row 4294967295, col 4294967295, tile 0; got 0 bytes, expected 71787 ERROR 1: TIFFReadEncodedTile() failed. ERROR 1: 17-031331013103-2023-11-04-10300100EF2D2500-visual.tif, band 1: IReadBlock failed at X offset 0, Y offset 0: TIFFReadEncodedTile() failed."
+    },
+    "105001003E362500_collection.json": "Finished",
+    "1030010106B32D00_collection.json": "Finished",
+    "1050010038B82300_collection.json": "Finished"
 }

@@ -1,1 +1,536 @@
-{"type": "Feature", "stac_version": "1.0.0", "stac_extensions": ["https://stac-extensions.github.io/view/v1.0.0/schema.json", "https://stac-extensions.github.io/projection/v1.0.0/schema.json", "https://stac-extensions.github.io/eo/v1.0.0/schema.json", "https://stac-extensions.github.io/raster/v1.1.0/schema.json", "https://stac-extensions.github.io/grid/v1.0.0/schema.json", "https://stac-extensions.github.io/classification/v1.1.0/schema.json"], "id": "17/031331031123/1040010097D1F500", "properties": {"datetime": "2024-06-03 16:25:10Z", "platform": "WV03", "gsd": 0.37, "ard_metadata_version": "0.0.1", "catalog_id": "1040010097D1F500", "utm_zone": 17, "quadkey": "031331031123", "view:off_nadir": 25.7, "view:azimuth": 300.6, "view:incidence_angle": 61.6, "view:sun_azimuth": 106.9, "view:sun_elevation": 74.6, "proj:epsg": 32617, "proj:geometry": {"type": "Polygon", "coordinates": [[[328036.19384765625, 3101401.3671875], [330156.25, 3101147.7661132812], [330156.25, 3099843.75], [328009.33837890625, 3099843.75], [328036.19384765625, 3101401.3671875]]]}, "grid:code": "MXRA-Z17-031331031123", "proj:bbox": [328009.33837890625, 3099843.75, 330156.25, 3101401.3671875], "tile:data_area": 3.0, "tile:clouds_area": 0.0, "tile:clouds_percent": 0}, "bbox": [-82.74930221355623, 28.012710470176263, -82.72747431473579, 28.02676840060579], "geometry": {"type": "Polygon", "coordinates": [[[-82.74925637551594, 28.02676840060579], [-82.72766217347346, 28.02475294212944], [-82.72747431473579, 28.01298660543486], [-82.74930221355623, 28.012710470176263], [-82.74925637551594, 28.02676840060579]]]}, "links": [{"rel": "collection", "href": "../../../acquisition_collections/1040010097D1F500_collection.json", "type": "application/json"}, {"rel": "parent", "href": "../../../acquisition_collections/1040010097D1F500_collection.json", "type": "application/json"}, {"rel": "root", "href": "../../../order_collections/6559111709582503805_root_collection.json", "type": "application/json"}], "assets": {"data-mask": {"type": "application/geopackage+sqlite3", "title": "Data Mask", "href": "./1040010097D1F500-data-mask.gpkg", "roles": ["data-mask"]}, "cloud-mask-raster": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Cloud/Cloud Shadow Coverage Raster", "description": "thematic raster, 0 -> no data, 1 -> clear, 2 -> cloud, 3 -> cloud shadow", "href": "./1040010097D1F500-clouds.tif", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [2176, 2176], "proj:transform": [2.44140625, 0.0, 324843.75, 0.0, -2.44140625, 3105156.25, 0.0, 0.0, 1.0], "raster:bands": [{"classification:classes": [{"value": 0, "name": "nodata", "description": "NoData"}, {"value": 1, "name": "clear", "description": "Clear of clouds or shadows"}, {"value": 2, "name": "cloud", "description": "Clouds"}, {"value": 3, "name": "cloud_shadow", "description": "Cloud shadows"}]}], "roles": ["cloud", "cloud-shadow"]}, "cloud-mask": {"type": "application/geopackage+sqlite3", "href": "./1040010097D1F500-cloud-mask.gpkg", "title": "Cloud Polygons", "roles": ["cloud"]}, "cloud-shadow-mask": {"type": "application/geopackage+sqlite3", "href": "./1040010097D1F500-cloud-shadow-mask.gpkg", "title": "Cloud Shadow Polygons", "roles": ["cloud-shadow"]}, "healthy-vegetation-mask-raster": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "href": "./1040010097D1F500-healthy-vegetation.tif", "title": "Healthy Vegetation Mask", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [3718, 3718], "proj:transform": [1.428859601936525, 0.0, 324843.75, 0.0, -1.428859601936525, 3105156.25, 0.0, 0.0, 1.0], "roles": ["data"]}, "healthy-vegetation-mask": {"type": "application/geopackage+sqlite3", "href": "./1040010097D1F500-healthy-vegetation-mask.gpkg", "title": "Healthy Vegetation Polygons", "roles": ["data"]}, "ms_analytic": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Multispectral Image", "href": "./1040010097D1F500-ms.tif", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [3718, 3718], "proj:transform": [1.428859601936525, 0.0, 324843.75, 0.0, -1.428859601936525, 3105156.25, 0.0, 0.0, 1.0], "eo:bands": [{"name": "BAND_C", "common_name": "coastal", "description": "Coastal Blue"}, {"name": "BAND_B", "common_name": "blue", "description": "Blue"}, {"name": "BAND_G", "common_name": "green", "description": "Green"}, {"name": "BAND_Y", "common_name": "yellow", "description": "Yellow"}, {"name": "BAND_R", "common_name": "red", "description": "Red"}, {"name": "BAND_RE", "common_name": "rededge", "description": "Red Edge 1"}, {"name": "BAND_N", "common_name": "nir08", "description": "Near Infrared 1"}, {"name": "BAND_N2", "common_name": "nir09", "description": "Near Infrared 2"}], "roles": ["data"]}, "ms-saturation-mask-raster": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Multispectral Pixel Saturation Mask", "href": "./1040010097D1F500-ms-saturation.tif", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [3718, 3718], "proj:transform": [1.428859601936525, 0.0, 324843.75, 0.0, -1.428859601936525, 3105156.25, 0.0, 0.0, 1.0], "roles": ["saturation"]}, "ms-saturation-mask": {"type": "application/geopackage+sqlite3", "href": "./1040010097D1F500-ms-saturation-mask.gpkg", "title": "MS Pixel Saturation Polygons", "roles": ["saturation"]}, "pan_analytic": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Panchromatic Image", "href": "./1040010097D1F500-pan.tif", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [14872, 14872], "proj:transform": [0.35721490048413124, 0.0, 324843.75, 0.0, -0.35721490048413124, 3105156.25, 0.0, 0.0, 1.0], "eo:bands": [{"name": "BAND_P", "description": "Pan"}], "roles": ["data"]}, "pan-flare-mask-raster": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "href": "./1040010097D1F500-pan-flare.tif", "title": "Pan Flare Mask", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [14872, 14872], "proj:transform": [0.35721490048413124, 0.0, 324843.75, 0.0, -0.35721490048413124, 3105156.25, 0.0, 0.0, 1.0], "roles": ["data"]}, "pan-flare-mask": {"type": "application/geopackage+sqlite3", "href": "./1040010097D1F500-pan-flare-mask.gpkg", "title": "Pan Flare Polygons", "roles": ["data"]}, "terrain-shadow-mask-raster": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "href": "./1040010097D1F500-terrain-shadows.tif", "title": "Terrain Shadow Mask", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [3718, 3718], "proj:transform": [1.428859601936525, 0.0, 324843.75, 0.0, -1.428859601936525, 3105156.25, 0.0, 0.0, 1.0], "roles": ["terrain-shadow"]}, "terrain-shadow-mask": {"type": "application/geopackage+sqlite3", "href": "./1040010097D1F500-terrain-shadow-mask.gpkg", "title": "Terrain Shadow Polygons", "roles": ["terrain-shadow"]}, "visual": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "title": "Visual Image", "href": "./1040010097D1F500-visual.tif", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [17408, 17408], "proj:transform": [0.30517578125, 0.0, 324843.75, 0.0, -0.30517578125, 3105156.25, 0.0, 0.0, 1.0], "eo:bands": [{"name": "BAND_R", "common_name": "red", "description": "Red"}, {"name": "BAND_G", "common_name": "green", "description": "Green"}, {"name": "BAND_B", "common_name": "blue", "description": "Blue"}], "roles": ["visual"]}, "water-mask-raster": {"type": "image/tiff; application=geotiff; profile=cloud-optimized", "href": "./1040010097D1F500-water.tif", "title": "Water Mask", "proj:bbox": [324843.75, 3099843.75, 330156.25, 3105156.25], "proj:shape": [3718, 3718], "proj:transform": [1.428859601936525, 0.0, 324843.75, 0.0, -1.428859601936525, 3105156.25, 0.0, 0.0, 1.0], "roles": ["water-mask"]}, "water-mask": {"type": "application/geopackage+sqlite3", "href": "./1040010097D1F500-water-mask.gpkg", "title": "Water Polygons", "roles": ["water-mask"]}}, "collection": "1040010097D1F500"}
+{
+    "type": "Feature",
+    "stac_version": "1.0.0",
+    "stac_extensions": [
+        "https://stac-extensions.github.io/view/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
+    ],
+    "id": "17/031331031123/1040010097D1F500",
+    "properties": {
+        "datetime": "2024-06-03 16:25:10Z",
+        "platform": "WV03",
+        "gsd": 0.37,
+        "ard_metadata_version": "0.0.1",
+        "catalog_id": "1040010097D1F500",
+        "utm_zone": 17,
+        "quadkey": "031331031123",
+        "view:off_nadir": 25.7,
+        "view:azimuth": 300.6,
+        "view:incidence_angle": 61.6,
+        "view:sun_azimuth": 106.9,
+        "view:sun_elevation": 74.6,
+        "proj:epsg": 32617,
+        "proj:geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        328036.19384765625,
+                        3101401.3671875
+                    ],
+                    [
+                        330156.25,
+                        3101147.7661132812
+                    ],
+                    [
+                        330156.25,
+                        3099843.75
+                    ],
+                    [
+                        328009.33837890625,
+                        3099843.75
+                    ],
+                    [
+                        328036.19384765625,
+                        3101401.3671875
+                    ]
+                ]
+            ]
+        },
+        "grid:code": "MXRA-Z17-031331031123",
+        "proj:bbox": [
+            328009.33837890625,
+            3099843.75,
+            330156.25,
+            3101401.3671875
+        ],
+        "tile:data_area": 3.0,
+        "tile:clouds_area": 0.0,
+        "tile:clouds_percent": 0
+    },
+    "bbox": [
+        -82.74930221355623,
+        28.012710470176263,
+        -82.72747431473579,
+        28.02676840060579
+    ],
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [
+                    -82.74925637551594,
+                    28.02676840060579
+                ],
+                [
+                    -82.72766217347346,
+                    28.02475294212944
+                ],
+                [
+                    -82.72747431473579,
+                    28.01298660543486
+                ],
+                [
+                    -82.74930221355623,
+                    28.012710470176263
+                ],
+                [
+                    -82.74925637551594,
+                    28.02676840060579
+                ]
+            ]
+        ]
+    },
+    "links": [
+        {
+            "rel": "collection",
+            "href": "../../../acquisition_collections/1040010097D1F500_collection.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "parent",
+            "href": "../../../acquisition_collections/1040010097D1F500_collection.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "root",
+            "href": "../../../order_collections/6559111709582503805_root_collection.json",
+            "type": "application/json"
+        }
+    ],
+    "assets": {
+        "data-mask": {
+            "type": "application/geopackage+sqlite3",
+            "title": "Data Mask",
+            "href": "./1040010097D1F500-data-mask.gpkg",
+            "roles": [
+                "data-mask"
+            ]
+        },
+        "cloud-mask-raster": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Cloud/Cloud Shadow Coverage Raster",
+            "description": "thematic raster, 0 -> no data, 1 -> clear, 2 -> cloud, 3 -> cloud shadow",
+            "href": "./1040010097D1F500-clouds.tif",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                2176,
+                2176
+            ],
+            "proj:transform": [
+                2.44140625,
+                0.0,
+                324843.75,
+                0.0,
+                -2.44140625,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "raster:bands": [
+                {
+                    "classification:classes": [
+                        {
+                            "value": 0,
+                            "name": "nodata",
+                            "description": "NoData"
+                        },
+                        {
+                            "value": 1,
+                            "name": "clear",
+                            "description": "Clear of clouds or shadows"
+                        },
+                        {
+                            "value": 2,
+                            "name": "cloud",
+                            "description": "Clouds"
+                        },
+                        {
+                            "value": 3,
+                            "name": "cloud_shadow",
+                            "description": "Cloud shadows"
+                        }
+                    ]
+                }
+            ],
+            "roles": [
+                "cloud",
+                "cloud-shadow"
+            ]
+        },
+        "cloud-mask": {
+            "type": "application/geopackage+sqlite3",
+            "href": "./1040010097D1F500-cloud-mask.gpkg",
+            "title": "Cloud Polygons",
+            "roles": [
+                "cloud"
+            ]
+        },
+        "cloud-shadow-mask": {
+            "type": "application/geopackage+sqlite3",
+            "href": "./1040010097D1F500-cloud-shadow-mask.gpkg",
+            "title": "Cloud Shadow Polygons",
+            "roles": [
+                "cloud-shadow"
+            ]
+        },
+        "healthy-vegetation-mask-raster": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "href": "./1040010097D1F500-healthy-vegetation.tif",
+            "title": "Healthy Vegetation Mask",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                3718,
+                3718
+            ],
+            "proj:transform": [
+                1.428859601936525,
+                0.0,
+                324843.75,
+                0.0,
+                -1.428859601936525,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "roles": [
+                "data"
+            ]
+        },
+        "healthy-vegetation-mask": {
+            "type": "application/geopackage+sqlite3",
+            "href": "./1040010097D1F500-healthy-vegetation-mask.gpkg",
+            "title": "Healthy Vegetation Polygons",
+            "roles": [
+                "data"
+            ]
+        },
+        "ms_analytic": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Multispectral Image",
+            "href": "./1040010097D1F500-ms.tif",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                3718,
+                3718
+            ],
+            "proj:transform": [
+                1.428859601936525,
+                0.0,
+                324843.75,
+                0.0,
+                -1.428859601936525,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "eo:bands": [
+                {
+                    "name": "BAND_C",
+                    "common_name": "coastal",
+                    "description": "Coastal Blue"
+                },
+                {
+                    "name": "BAND_B",
+                    "common_name": "blue",
+                    "description": "Blue"
+                },
+                {
+                    "name": "BAND_G",
+                    "common_name": "green",
+                    "description": "Green"
+                },
+                {
+                    "name": "BAND_Y",
+                    "common_name": "yellow",
+                    "description": "Yellow"
+                },
+                {
+                    "name": "BAND_R",
+                    "common_name": "red",
+                    "description": "Red"
+                },
+                {
+                    "name": "BAND_RE",
+                    "common_name": "rededge",
+                    "description": "Red Edge 1"
+                },
+                {
+                    "name": "BAND_N",
+                    "common_name": "nir08",
+                    "description": "Near Infrared 1"
+                },
+                {
+                    "name": "BAND_N2",
+                    "common_name": "nir09",
+                    "description": "Near Infrared 2"
+                }
+            ],
+            "roles": [
+                "data"
+            ]
+        },
+        "ms-saturation-mask-raster": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Multispectral Pixel Saturation Mask",
+            "href": "./1040010097D1F500-ms-saturation.tif",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                3718,
+                3718
+            ],
+            "proj:transform": [
+                1.428859601936525,
+                0.0,
+                324843.75,
+                0.0,
+                -1.428859601936525,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "roles": [
+                "saturation"
+            ]
+        },
+        "ms-saturation-mask": {
+            "type": "application/geopackage+sqlite3",
+            "href": "./1040010097D1F500-ms-saturation-mask.gpkg",
+            "title": "MS Pixel Saturation Polygons",
+            "roles": [
+                "saturation"
+            ]
+        },
+        "pan_analytic": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Panchromatic Image",
+            "href": "./1040010097D1F500-pan.tif",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                14872,
+                14872
+            ],
+            "proj:transform": [
+                0.35721490048413124,
+                0.0,
+                324843.75,
+                0.0,
+                -0.35721490048413124,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "eo:bands": [
+                {
+                    "name": "BAND_P",
+                    "description": "Pan"
+                }
+            ],
+            "roles": [
+                "data"
+            ]
+        },
+        "pan-flare-mask-raster": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "href": "./1040010097D1F500-pan-flare.tif",
+            "title": "Pan Flare Mask",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                14872,
+                14872
+            ],
+            "proj:transform": [
+                0.35721490048413124,
+                0.0,
+                324843.75,
+                0.0,
+                -0.35721490048413124,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "roles": [
+                "data"
+            ]
+        },
+        "pan-flare-mask": {
+            "type": "application/geopackage+sqlite3",
+            "href": "./1040010097D1F500-pan-flare-mask.gpkg",
+            "title": "Pan Flare Polygons",
+            "roles": [
+                "data"
+            ]
+        },
+        "terrain-shadow-mask-raster": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "href": "./1040010097D1F500-terrain-shadows.tif",
+            "title": "Terrain Shadow Mask",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                3718,
+                3718
+            ],
+            "proj:transform": [
+                1.428859601936525,
+                0.0,
+                324843.75,
+                0.0,
+                -1.428859601936525,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "roles": [
+                "terrain-shadow"
+            ]
+        },
+        "terrain-shadow-mask": {
+            "type": "application/geopackage+sqlite3",
+            "href": "./1040010097D1F500-terrain-shadow-mask.gpkg",
+            "title": "Terrain Shadow Polygons",
+            "roles": [
+                "terrain-shadow"
+            ]
+        },
+        "visual": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Visual Image",
+            "href": "./1040010097D1F500-visual.tif",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                17408,
+                17408
+            ],
+            "proj:transform": [
+                0.30517578125,
+                0.0,
+                324843.75,
+                0.0,
+                -0.30517578125,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "eo:bands": [
+                {
+                    "name": "BAND_R",
+                    "common_name": "red",
+                    "description": "Red"
+                },
+                {
+                    "name": "BAND_G",
+                    "common_name": "green",
+                    "description": "Green"
+                },
+                {
+                    "name": "BAND_B",
+                    "common_name": "blue",
+                    "description": "Blue"
+                }
+            ],
+            "roles": [
+                "visual"
+            ]
+        },
+        "water-mask-raster": {
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "href": "./1040010097D1F500-water.tif",
+            "title": "Water Mask",
+            "proj:bbox": [
+                324843.75,
+                3099843.75,
+                330156.25,
+                3105156.25
+            ],
+            "proj:shape": [
+                3718,
+                3718
+            ],
+            "proj:transform": [
+                1.428859601936525,
+                0.0,
+                324843.75,
+                0.0,
+                -1.428859601936525,
+                3105156.25,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "roles": [
+                "water-mask"
+            ]
+        },
+        "water-mask": {
+            "type": "application/geopackage+sqlite3",
+            "href": "./1040010097D1F500-water-mask.gpkg",
+            "title": "Water Polygons",
+            "roles": [
+                "water-mask"
+            ]
+        }
+    },
+    "collection": "1040010097D1F500"
+}
