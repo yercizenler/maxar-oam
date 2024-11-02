@@ -30,8 +30,9 @@ pip install -r requirements.txt
 
 If you are brave to run all process:
 ```shell
-python3 main.py --scene_id 10300500D9F8D500 --output_name "MAXAR_KAHRAMANMARAS.tif"
+python3 main.py --event_name  --scene_id 10300500D9F8D500 --output_name "MAXAR_KAHRAMANMARAS.tif"
 ```
+You can find the latest event names downloading this [link](https://maxar-opendata.s3.amazonaws.com/events/catalog.json)
 
 `main_multiscene_collection.py` is more practical for iterative processing if you download the collections.
 
