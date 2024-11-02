@@ -1,5 +1,4 @@
 import pathlib
-import os
 
 import json
 import click
@@ -7,7 +6,7 @@ import click
 from common import download, process
 
 @click.command()
-@click.option("--operation_name", default="HurricaneMilton-Oct24", help="Data folder path with scene collection jsons")
+@click.option("--operation_name", default="Floods-Spain-Oct24", help="Data folder path with scene collection jsons")
 def main(operation_name: str):
     data_path = pathlib.Path(__file__).resolve().parent / f"data/{operation_name}"
     status_path = data_path / "operation_status.json"
@@ -30,8 +29,6 @@ def main(operation_name: str):
                         event_name=operation_name,
                         scene_id=collection_json["id"],
                         download_path=download_path,
-                        aws_access_key_id=os.environ["PERSONAL_AWS_KEY_ID"],
-                        aws_secret_access_key=os.environ["PERSONAL_AWS_SECRET"]
                     )
                     status_data[path.name] = "Downloaded"
                     sf.seek(0)

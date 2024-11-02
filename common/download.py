@@ -2,6 +2,8 @@ import requests
 from pathlib import Path
 
 import boto3
+from botocore import client
+import botocore
 
 VERIFY=True # Set to False if you are on Windows.
 
@@ -9,13 +11,11 @@ def download_tiles_s3(
         event_name: str = "",
         scene_id: str = "",
         download_path: Path = None,
-        aws_access_key_id: str = "",
-        aws_secret_access_key: str = ""
     ) -> None:
     s3 = boto3.resource(
             "s3",
-            aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key,
+            config=client.Config(
+                signature_version=botocore.UNSIGNED),
             verify=VERIFY
         )
     bucket = s3.Bucket(name="maxar-opendata")

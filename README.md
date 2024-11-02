@@ -22,23 +22,22 @@ If not all the tiles are in the same projection, we are projecting them to `3857
 - Only supports Unix-like systems.
 - Install GDAL to your local machine
 - Install `requirements.txt` on python
-
-# Set AWS Credentials
-
-- Set the following environment keys as `.env` on vscode or to your bash
-```
-PERSONAL_AWS_KEY_ID=...
-PERSONAL_AWS_SECRET=...
+```shell
+pip install -r requirements.txt
 ```
 
 # Run the script
 
 If you are brave to run all process:
-```
+```shell
 python3 main.py --scene_id 10300500D9F8D500 --output_name "MAXAR_KAHRAMANMARAS.tif"
 ```
 
-`main_multiscene_from_collection.py` is more practical for iterative processing.
+`main_multiscene_collection.py` is more practical for iterative processing if you download the collections.
+
+```shell
+aws s3 sync s3://maxar-opendata/events/{EVENT_NAME}/ard/acquisition_collections {REPO_PATH}/maxar-oam/data/{EVENT_NAME}/ --no-sign-request
+```
 
 # Uploading to OAM
 
