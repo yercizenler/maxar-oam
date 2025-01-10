@@ -36,8 +36,23 @@ You can find the latest event names downloading this [link](https://maxar-openda
 
 `main_multiscene_collection.py` is more practical for iterative processing if you download the collections.
 
+Download collections:
 ```shell
 aws s3 sync s3://maxar-opendata/events/{EVENT_NAME}/ard/acquisition_collections {REPO_PATH}/maxar-oam/data/{EVENT_NAME}/ --no-sign-request
+```
+
+Download items:
+```shell
+aws s3 cp s3://maxar-opendata/events/WildFires-LosAngeles-Jan-2025/ard/11/ {REPO_PATH}/maxar-oam/data/{EVENT_NAME}/items/temp --recursive --exclude "*" --include "*.json" --no-sign-request
+```
+Leaves single item per collection to check metadata:
+```
+find {REPO_PATH}/maxar-oam/data/{EVENT_NAME}/items/all -type f -name "*.json" -exec mv -f {} {REPO_PATH}/maxar-oam/data/{EVENT_NAME}/items/ \;
+```
+
+List bucket files:
+```shell
+aws s3 ls s3://maxar-opendata/events/{EVENT_NAME}/ard/ --no-sign-request
 ```
 
 # Uploading to OAM

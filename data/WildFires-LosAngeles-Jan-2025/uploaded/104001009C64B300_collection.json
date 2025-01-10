@@ -1,0 +1,72 @@
+{
+    "type": "Collection",
+    "id": "104001009C64B300",
+    "stac_version": "1.0.0",
+    "description": "104001009C64B300 ARD Tiles",
+    "links": [
+        {
+            "rel": "root",
+            "href": "../order_collections/6624789378770577538_root_collection.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "parent",
+            "href": "../order_collections/6624789378770577538_root_collection.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "item",
+            "href": "../11/031311103031/2025-01-08/104001009C64B300.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "item",
+            "href": "../11/031311103120/2025-01-08/104001009C64B300.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "item",
+            "href": "../11/031311103300/2025-01-08/104001009C64B300.json",
+            "type": "application/json"
+        }
+    ],
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -118.14168764406159,
+                    34.13508444,
+                    -118.03570673,
+                    34.22491556
+                ],
+                [
+                    -118.14168764406159,
+                    34.19930614945414,
+                    -118.08369073584,
+                    34.22491556
+                ],
+                [
+                    -118.08740482223703,
+                    34.199799010293034,
+                    -118.03570673,
+                    34.22491556
+                ],
+                [
+                    -118.08654003817524,
+                    34.13508444,
+                    -118.03570673,
+                    34.157969752201296
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2025-01-08 18:41:37Z",
+                    "2025-01-08 18:41:38Z"
+                ]
+            ]
+        }
+    },
+    "license": "proprietary"
+}

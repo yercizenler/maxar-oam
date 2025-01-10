@@ -1,0 +1,61 @@
+{
+    "type": "Collection",
+    "id": "10400100A24E1900",
+    "stac_version": "1.0.0",
+    "description": "10400100A24E1900 ARD Tiles",
+    "links": [
+        {
+            "rel": "root",
+            "href": "../order_collections/6624789378770577538_root_collection.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "parent",
+            "href": "../order_collections/6624789378770577538_root_collection.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "item",
+            "href": "../11/031311103120/2025-01-08/10400100A24E1900.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "item",
+            "href": "../11/031311103300/2025-01-08/10400100A24E1900.json",
+            "type": "application/json"
+        }
+    ],
+    "extent": {
+        "spatial": {
+            "bbox": [
+                [
+                    -118.08185497175477,
+                    34.13508444,
+                    -118.03570673,
+                    34.22491556
+                ],
+                [
+                    -118.08185497175477,
+                    34.19984889232183,
+                    -118.03570673,
+                    34.22491556
+                ],
+                [
+                    -118.08048905612036,
+                    34.13508444,
+                    -118.03570673,
+                    34.157969919609556
+                ]
+            ]
+        },
+        "temporal": {
+            "interval": [
+                [
+                    "2025-01-08 18:41:49Z",
+                    "2025-01-08 18:41:51Z"
+                ]
+            ]
+        }
+    },
+    "license": "proprietary"
+}
