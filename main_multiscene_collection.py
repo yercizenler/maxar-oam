@@ -21,9 +21,7 @@ def main(operation_name: str):
                     json.dump(status_data, sf, indent=4)
                 
                 download_path = pathlib.Path(f'SCENES/{collection_json["id"]}')
-                download_path.mkdir(parents=True, exist_ok=True)
                 if status_data[path.name] == "Started":
-                    download_path = pathlib.Path(f'SCENES/{collection_json["id"]}')
                     download_path.mkdir(parents=True, exist_ok=True)
                     download.download_tiles_s3(
                         event_name=operation_name,
